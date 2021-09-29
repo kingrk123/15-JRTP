@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: ranvi
+Build-Jdk: 14.0.2
+Implementation-Title: Spring MAIL - mail-template-freemaker
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: com.memorynotfound.mail
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://memorynotfound.com
+Created-By: Maven Integration for Eclipse
+

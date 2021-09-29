@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>View Accounts</title>
+<meta name="description" content="">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<script
+	src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+<script src="/js/datatable.js"></script>
+
+<style>
+select.form-control {
+	display: inline;
+	width: 200px;
+	margin-left: 25px;
+}
+</style>
+</head>
+
+<body>
+	<div th:insert="fragments/commonui :: userhead"></div>
+	<div th:insert="fragments/commonui :: usermenu"></div>
+	<br>
+	<div th:insert="fragments/adminbtn :: createmenu"></div>
+	<br>
+	<div class="container">
+	<div th:if="${Msg}" th:utext="${Msg}"
+			class="alert alert-success text-center"></div>
+		
+		<h4 style="text-align: center;">View Accounts</h4>
+		<div th:if="${Msg}" th:utext="${Msg}"
+			class="alert alert-success text-center"></div>
+		<!-- Create the drop down filter -->
+		<div class="category-filter" style="width: 100%">
+			<select id="RoleFilter" class="form-control">
+				<option value="">Show All</option>
+				<option value="ADMIN">ADMIN</option>
+				<option value="CASEWORKER">CASEWORKER</option>
+			</select>
+		</div>
+		<br>
+		<!-- Set up the datatable -->
+		<table class="table  " id="employeesTable" style="width: 100%"
+			border="0">
+			<thead>
+				<tr>
+					<th scope="col">S.No</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Role</th>
+					<th style="width: 1%" colspan="2">Actions</th>
+					<th style="width: 1%"></th>
+				</tr>
+			</thead>
+			<tfoot>
+
+			</tfoot>
+		</table>
+		<br>
+	</div>
+
+</body>
+
+</html>

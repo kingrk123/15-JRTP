@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Account Registration</title>
+<link th:href="@{/css/reg.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:insert="fragments/commonui :: userhead"></div>
+	<div th:insert="fragments/commonui :: usermenu"></div>
+	<br>
+	<div th:insert="fragments/adminbtn :: createmenu"></div>
+	<br>
+
+	<div class="container">
+		<div th:if="${Msg}" th:utext="${Msg}"
+			class="alert alert-success text-center"></div>
+		<div class="title">Account Registration</div>
+		<div class="content">
+			<!--  <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post"> -->
+			<form action="#" th:action="@{/admin/saveAccount}"
+				th:object="${account}" method="post">
+
+				<div class="user-details">
+					<div class="input-box">
+						<span class="details">First Name</span> <input type="text"
+							th:field="*{fName}" placeholder="Enter your first name" required />
+					</div>
+					<div class="input-box">
+						<span class="details">Last Name</span> <input type="text"
+							th:field="*{lName}" placeholder="Enter your last name" required />
+					</div>
+					<div class="input-box">
+						<span class="details">Email</span> <input type="text"
+							th:field="*{eMail}" placeholder="Enter your email" required />
+					</div>
+					<div class="input-box">
+						<span class="details">Password</span> <input type="text"
+							th:field="*{password}" placeholder="Enter your password" required />
+					</div>
+					<div class="input-box">
+						<span class="details">Phone Number</span> <input type="text"
+							th:field="*{phNo}" placeholder="Enter your number" required />
+					</div>
+					<div class="input-box">
+						<span class="details">Date of Birth</span> <input type="date"
+							class="form-control" id="bd" th:field="*{dob}"
+							placeholder="Date of Borth" />
+					</div>
+
+
+
+					<div class="input-box">
+						<span class="details">SSN No.</span> <input type="text"
+							th:field="*{ssn}" placeholder="Enter Ssn No" required />
+					</div>
+					<div class="input-box">
+						<span class="details">Role</span> <label for="styledSelect1"
+							class="custom-select"> <select th:field="*{role}">
+								<option value="0">--SELECT ROLE--</option>
+								<option th:value="'ADMIN'" th:text="ADMIN"></option>
+								<option th:value="'CASEWORKER'" th:text="CASEWORKER"></option>
+						</select>
+						</label>
+					</div>
+				</div>
+
+				<!--  <div class="gender-details">
+                <input type="radio" id="option1" name="option1" class="custom-control-input" value="Male" th:field="*{GENDER}">
+                <label class="custom-control-label" for="option1">Male</label>
+            
+                <input type="radio" id="option2" name="option2" class="custom-control-input" value="Female" th:field="*{GENDER}">
+                <label class="custom-control-label" for="option2">Female</label>
+           <input type="radio" id="option3" name="option3" class="custom-control-input" value="Prefer not to say" th:field="*{GENDER}">
+                <label class="custom-control-label" for="option3">Prefer not to say</label>
+            
+        </div> 
+			 -->
+				<div class="gender-details">
+					<input type="radio" name="gender" id="dot-1" value="Male"
+						th:field="*{gender}" /> <input type="radio" name="gender"
+						id="dot-2" value="Female" th:field="*{gender}" /> <input
+						type="radio" name="gender" id="dot-3" value="Prefer not to say"
+						th:field="*{gender}" /> <span class="gender-title">Gender</span>
+					<div class="category">
+						<label for="dot-1"> <span class="dot one"></span> <span
+							class="gender">Male</span>
+						</label> <label for="dot-2"> <span class="dot two"></span> <span
+							class="gender">Female</span>
+						</label> <label for="dot-3"> <span class="dot three"></span> <span
+							class="gender">Prefer not to say</span>
+						</label>
+					</div>
+				</div>
+				<div class="button">
+					<input type="submit" value="Register" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+</html>

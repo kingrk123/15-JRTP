@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>DYNAMIC SEARCH</title>
+
+
+ <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<script
+	src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+	<script>
+	/* Initialization of datatable */
+    $(document).ready(function() {
+        $('#tableID').DataTable({ });
+    });
+	</script>
+  
+</head>
+<body>
+
+	<form action="#" th:action="@{/search}" th:object="${formObj}"
+		method="post">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th><select class="form-control form-control-sm" id="brand" name="brand"
+						th:field="*{brand}">
+							<option value="">SELECT BRAND</option>
+							<option th:each="country : ${brand}" th:value="${country}"
+								th:text="${country}"></option>
+					</select></th>
+
+					<th><select class="form-control form-control-sm" id="ram" name="ram"
+						th:field="*{ram}">
+							<option value="">SELECT RAM</option>
+							<option th:each="country : ${ram}" th:value="${country}"
+								th:text="${country}"></option>
+					</select></th>
+
+					<th><select class="form-control form-control-sm" id="rating" name="rating"
+						th:field="*{rating}">
+							<option value="">SELECT RATING</option>
+							<option th:each="country : ${rating}" th:value="${country}"
+								th:text="${country}"></option>
+					</select></th>
+
+					<th><select class="form-control form-control-sm" id="price" name="price"
+						th:field="*{price}">
+							<option value="">SELECT PRICE</option>
+							<option value="10000">LESS THAN 10000</option>
+							<option value="20000">LESS THAN 20000</option>
+							<option value="30000">LESS THAN 30000</option>
+							<option value="40000">LESS THAN 40000</option>
+							<option value="50000">LESS THAN 50000</option>
+							<option value="60000">LESS THAN 60000</option>
+							<option value="70000">LESS THAN 70000</option>
+
+					</select></th>
+
+					<th><input class="btn btn-success" type="submit"
+						value="SEARCH"></th>
+
+				</tr>
+			</thead>
+		</table>
+
+	</form>
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mt-5 mb-5">
+				<table id="tableID" class="table table-bordered" style="width: 100%">
+					<thead>
+						<tr>
+							<th>MOBILE NAME</th>
+							<th>MOBILE PRICE</th>
+							<th>MOBILE RATING</th>
+							<th>MOBILE RAM</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="mobile : ${mobiles}">
+							<td th:text="${mobile.brand}">Name</td>
+							<td th:text="${mobile.price}">Name</td>
+							<td th:text="${mobile.rating}">Name</td>
+							<td th:text="${mobile.ram}">Name</td>
+							<!-- <td th:text="${employee.position}">Position</td>
+							<td th:text="${employee.office}">Office</td>
+							<td th:text="${#dates.format(employee.startDate, 'dd.MM.yyyy')}">Start
+								date</td>
+							<td
+								th:text="'$' + ${#numbers.formatDecimal(employee.salary, 0, 'COMMA', 2, 'POINT')}">Salary</td> -->
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>

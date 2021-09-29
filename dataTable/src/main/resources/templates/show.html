@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Spring Boot + JPA + Datatables</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script> 
+	
+	<script src="/js/datatable2.js"></script>
+	
+</head>
+
+<body>
+
+<div class="container">
+	<h1 style="text-align: center;">Employees Table</h1>
+	
+	<div class="Role-filter" style="width: 100%">
+			<lable>Select Role</lable>
+			<select id="RoleFilter" class="form-control">
+				<option value="">Show All</option>
+				<option value="ADMIN">ADMIN</option>
+				<option value="CASEWORKER">CASEWORKER</option>
+			</select>
+		</div>
+	 
+	<br>
+	
+	<table id="employeesTable" class="table"  style="width: 100%" border="0">
+      
+       <!-- Header Table -->
+       <thead>
+            <tr>
+                <th>Account Id</th>
+				<th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <!-- Footer Table -->
+        <tfoot>
+            
+        </tfoot>
+    </table>
+    </div>
+</body>
+</html>

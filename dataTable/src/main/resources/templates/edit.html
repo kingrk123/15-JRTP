@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"><html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Hello</h1>
+ <span th:text="'Hello, ' + ${usr}"></span>
+ 
+ <form th:action="@{/update}"  method="POST" th:object="${emp}">
+ 
+			<input type="text" th:field="*{id}" readonly="readonly"/>
+			<br>
+			<input type="text" th:field="*{name}" /><br>
+			<input type="text" th:field="*{lastName}" /><br>
+			<input type="text" th:field="*{email}" /><br>
+			<input type="text" th:field="*{phone}" /><br>
+ 
+ 		<input type="submit" class="btn btn-success" value="Update Employee">
+ 		
+ </form>
+</body>
+
+</html>
